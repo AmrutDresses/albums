@@ -3,145 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bollywood Fabric Store | Digital Directory</title>
+    <title>Bollywood Fabric Store | Official Directory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --gold: #D4AF37;
-            --dark-gold: #B8860B;
-            --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-white: #ffffff;
+            --light-gold: #F1D382;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-gray: #b0b0b0;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg-gradient);
-            color: var(--text-white);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at top right, #2c2c2c, #121212);
+            color: white;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            min-height: 100vh;
         }
 
         .container {
             width: 100%;
-            max-width: 480px;
-            text-align: center;
+            max-width: 450px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         header {
-            margin-bottom: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
         }
 
-        .logo-text {
-            font-size: 28px;
+        .logo-main {
+            font-size: 32px;
             font-weight: 800;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .tagline {
-            font-size: 14px;
-            opacity: 0.8;
-            letter-spacing: 1px;
+            font-size: 13px;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .category-block {
-            margin-bottom: 25px;
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .category-name {
-            font-size: 14px;
+        .section-label {
+            font-size: 12px;
             font-weight: 700;
             color: var(--gold);
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin: 30px 0 15px 5px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
         }
 
-        .category-name::before, .category-name::after {
+        .section-label::after {
             content: "";
+            flex: 1;
             height: 1px;
-            width: 30px;
-            background: var(--gold);
-            opacity: 0.5;
+            background: linear-gradient(to right, var(--gold), transparent);
         }
 
-        .btn-grid {
+        .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .link-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            padding: 12px 10px;
+        .btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 15px 10px;
             border-radius: 12px;
+            text-decoration: none;
+            color: white;
             font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 8px;
         }
 
-        .link-btn:hover {
+        .btn i {
+            font-size: 18px;
+            color: var(--gold);
+        }
+
+        .btn:hover {
+            border-color: var(--gold);
             background: var(--gold);
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            color: black;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
-        /* Full width button for main categories */
-        .btn-full {
+        .btn:hover i {
+            color: black;
+        }
+
+        .btn-large {
             grid-column: span 2;
+            background: linear-gradient(45deg, var(--gold), var(--light-gold));
+            color: black;
             font-weight: 700;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid var(--gold);
+            text-transform: uppercase;
         }
 
         footer {
-            margin-top: 40px;
-            padding-bottom: 20px;
+            text-align: center;
+            margin-top: 50px;
+            padding-bottom: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
         }
 
-        .main-site-link {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .social-icons {
-            margin-top: 20px;
+        .social-row {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
+            margin-bottom: 20px;
         }
 
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
+        .social-row a {
             color: var(--gold);
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-row a:hover {
+            transform: scale(1.2);
+            color: white;
         }
     </style>
 </head>
@@ -149,62 +157,85 @@
 
 <div class="container">
     <header>
-        <div class="logo-text">Bollywood Fabric</div>
-        <div class="tagline">Premium Designer Fabrics & Ethnic Wear</div>
+        <div class="logo-main">Bollywood Fabric</div>
+        <div class="tagline">The Art of Indian Textiles</div>
     </header>
 
-    <div class="category-block">
-        <div class="btn-grid">
-            <a href="https://bollywoodfabricstore.com/shop/" class="link-btn btn-full">SHOP ALL PRODUCTS</a>
-        </div>
+    <a href="https://bollywoodfabricstore.com/product-category/fabrics/" class="btn btn-large">
+        <i class="fas fa-cut"></i> Explore All Fabrics
+    </a>
+
+    <div class="section-label">Signature Collections</div>
+    <div class="grid">
+        <a href="https://bollywoodfabricstore.com/product-category/ajrakh-hand-block-print-fabric/" class="btn">
+            <i class="fas fa-stamp"></i> Ajrakh Prints
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/hand-block-print/" class="btn">
+            <i class="fas fa-palette"></i> Hand Block
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/digital-print-collection/" class="btn">
+            <i class="fas fa-print"></i> Digital Prints
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/embroidery-work-collection/" class="btn">
+            <i class="fas fa-magic"></i> Embroidery
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/vintage-work-fabrics/" class="btn">
+            <i class="fas fa-history"></i> Vintage Work
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/navratri-splendor/" class="btn">
+            <i class="fas fa-om"></i> Navratri Special
+        </a>
     </div>
 
-    <div class="category-block">
-        <div class="category-name">Premium Fabrics</div>
-        <div class="btn-grid">
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/silk-fabric/" class="link-btn">Silk</a>
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/georgette-fabric/" class="link-btn">Georgette</a>
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/organza-fabric/" class="link-category link-btn">Organza</a>
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/cotton-fabric/" class="link-btn">Cotton</a>
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/velvet-fabric/" class="link-btn">Velvet</a>
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/chiffon-fabric/" class="link-btn">Chiffon</a>
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/crepe-fabric/" class="link-btn">Crepe</a>
-            <a href="https://bollywoodfabricstore.com/product-category/fabrics/net-fabric/" class="link-btn">Net</a>
-        </div>
+    <div class="section-label">Ethnic Wear</div>
+    <div class="grid">
+        <a href="https://bollywoodfabricstore.com/product-category/sarees-at-bollywood-fabric-store/" class="btn">
+            <i class="fas fa-female"></i> Sarees
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/lehenga-choli/" class="btn">
+            <i class="fas fa-gem"></i> Lehenga Choli
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/kurti/" class="btn">
+            <i class="fas fa-tshirt"></i> Kurtis
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/designer-blouse-collection/" class="btn">
+            <i class="fas fa-star"></i> Blouses
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/chic-dupatta-collection/" class="btn">
+            <i class="fas fa-scroll"></i> Dupattas
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/mens/" class="btn">
+            <i class="fas fa-user-tie"></i> Men's Wear
+        </a>
     </div>
 
-    <div class="category-block">
-        <div class="category-name">Designer Collections</div>
-        <div class="btn-grid">
-            <a href="https://bollywoodfabricstore.com/product-category/bollywood-inspiration/" class="link-btn">Bollywood Inspired</a>
-            <a href="https://bollywoodfabricstore.com/product-category/embroidery-work-collection/" class="link-btn">Embroidery Work</a>
-            <a href="https://bollywoodfabricstore.com/product-category/digital-print-collection/" class="link-btn">Digital Prints</a>
-            <a href="https://bollywoodfabricstore.com/product-category/lucknowi-chikankari/" class="link-btn">Chikankari</a>
-            <a href="https://bollywoodfabricstore.com/product-category/dyeable-fabrics-collection/" class="link-btn">Dyeable Fabrics</a>
-            <a href="https://bollywoodfabricstore.com/product-category/vintage-work-fabrics/" class="link-btn">Vintage Work</a>
-        </div>
-    </div>
-
-    <div class="category-block">
-        <div class="category-name">Ethnic Wear & Accessories</div>
-        <div class="btn-grid">
-            <a href="https://bollywoodfabricstore.com/product-category/sarees/" class="link-btn">Sarees</a>
-            <a href="https://bollywoodfabricstore.com/product-category/lehenga-choli/" class="link-btn">Lehenga Choli</a>
-            <a href="https://bollywoodfabricstore.com/product-category/kurti/" class="link-btn">Kurtis</a>
-            <a href="https://bollywoodfabricstore.com/product-category/dupatta/" class="link-btn">Dupattas</a>
-            <a href="https://bollywoodfabricstore.com/product-category/handcrafted-punjabi-juttis-for-women/" class="link-btn">Punjabi Juttis</a>
-            <a href="https://bollywoodfabricstore.com/product-category/jewelry/" class="link-btn">Jewelry</a>
-        </div>
+    <div class="section-label">Jewelry & Lifestyle</div>
+    <div class="grid">
+        <a href="https://bollywoodfabricstore.com/product-category/jewelry/" class="btn">
+            <i class="fas fa-ring"></i> Jewelry
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/pure-brass-bangles-kadas/" class="btn">
+            <i class="fas fa-circle-notch"></i> Brass Bangles
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/handcrafted-punjabi-juttis-for-women/" class="btn">
+            <i class="fas fa-shoe-prints"></i> Punjabi Juttis
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/laces-borders/" class="btn">
+            <i class="fas fa-border-style"></i> Laces & Borders
+        </a>
+        <a href="https://bollywoodfabricstore.com/product-category/household-essentials/" class="btn btn-large">
+            <i class="fas fa-home"></i> Household Essentials
+        </a>
     </div>
 
     <footer>
-        <a href="https://bollywoodfabricstore.com/" class="main-site-link">www.bollywoodfabricstore.com</a>
-        <div class="social-icons">
+        <div class="social-row">
+            <a href="https://wa.me/YOURNUMBER"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p style="font-size: 10px; opacity: 0.5; margin-top: 20px;">&copy; 2025 Bollywood Fabric Store. All Rights Reserved.</p>
+        <a href="https://bollywoodfabricstore.com/" style="color: var(--gold); text-decoration: none; font-size: 14px; font-weight: bold;">Visit Website</a>
+        <p style="font-size: 10px; color: #555; margin-top: 15px;">&copy; 2025 Bollywood Fabric Store</p>
     </footer>
 </div>
 
